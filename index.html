@@ -12,7 +12,24 @@
         <p class="tagline">
             An instant chat platform.
         </p>
-        <button class="button">Sign in with Google</button>
+        <button id="signin-button" class="button">Sign in with Google</button>
     </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBlIMY5gPlBg6r4VfGCoaS3Xj4KUSK4lTo",
+        authDomain: "snapychat-98800.firebaseapp.com",
+        databaseURL: "https://snapychat-98800.firebaseio.com",
+        storageBucket: "snapychat-98800.appspot.com",
+        messagingSenderId: "944658150768"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script type="text/javascript" src="functions.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ body.homepage {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .main {
     width: 500px;
     margin: auto;
@@ -21,91 +22,136 @@ body.homepage {
     top: 50%;
     transform: translateY(-50%);
 }
+
 .logo {
     font-size: 50px;
     color: white;
     margin-bottom: 10px;
     margin-top: 0;
 }
+
 .tagline {
     font-size: 24px;
     color: white;
 }
+
 .button {
-    background-color: blueviolet;
+    background-color: #f36;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
 }
+
 .button:hover {
     background: white;
-    color: blueviolet;
+    color: #f36;
 }
+
 
 /*
     Chat Page
  */
+
 .member-area {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     width: 30%;
-    background: navy;
+    background: #191d22;
     color: #fff;
 }
+
 .user-info {
-    background: white;
-    color: darkblue;
-    padding: 10px;
+    color: #d4d7da;
+    background: #252b33;
+    padding: 15px;
 }
+
+.user-info .logout {
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+    margin-top: -1px;
+}
+
 .logout {
     float: right;
 }
+
 .member {
-    padding: 10px;
-    border-bottom: solid 1px white;
+    color: #7293b3;
+    padding: 15px;
+    border-bottom: solid 1px #252b33;
     cursor: pointer;
+    text-align: right;
 }
-.member:hover {
-    background: white;
-    color: darkblue;
+
+.member img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: left;
+    background: #fff;
+    padding: 2px;
+    margin-top: -2px;
 }
-.member.active {
-    background-color: azure;
-    font-weight: bold;
-    color: darkblue;
+
+.member:hover, .member.active {
+    color: white;
+    background: #f36;
+    border-bottom: transparent;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
 .message-area {
-    background-color: azure;
+    background: #d3dae2;
     position: fixed;
     left: 30%;
     top: 0;
     bottom: 0;
     width: 70%;
 }
+
 .chat-info {
+    display: none;
     background-color: white;
-    padding: 10px;
-    color: black;
+    padding: 15px;
+    color: #252b33;
 }
+
 .messages {
-    background: lightblue;
-    height: 80%;
+    background: #d3dae2;
+    height: 84%;
     overflow: auto;
     padding: 10px;
 }
+
 .message {
-    background: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
+    background: #3789ef;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
     border-radius: 4px;
+    max-width: 70%;
+    float: left;
 }
+
 .message.by-user {
-    background: darkgray;
+    background: #fff;
+    color: #252b33;
+    float: right;
+    clear: both;
 }
+
 .chat-form {
     position: fixed;
     left: 30%;
@@ -113,11 +159,23 @@ body.homepage {
     width: 70%;
     background: white;
     padding: 20px;
+    display: none;
 }
+
 .chat-message {
     padding: 10px;
     border: solid 1px lightgray;
     border-radius: 4px;
     display: block;
-    width: 100%;
+    width: 90%;
+    float: left;
+}
+
+.send-button {
+    float: right;
+}
+
+.send-button:hover {
+    background: #ce214c;
+    color: #fff;
 }

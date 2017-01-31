@@ -9,8 +9,9 @@
 <body>
     <div class="member-area">
         <div class="user-info">
+            <img id="user-image" src="">
             <span id="username"></span>
-            <span class="logout">Log out</span>
+            <span class="logout" id="logout-button">Log out</span>
         </div>
 
         <div class="members" id="members">
@@ -18,18 +19,18 @@
     </div>
 
     <div class="message-area">
-        <div class="chat-info">
-            Anamika
+        <div id="chat-info" class="chat-info">
+
         </div>
 
         <div class="messages" id="messages">
 
         </div>
 
-        <div class="chat-form">
+        <div class="chat-form" id="chat-form">
             <input type="hidden" id="chat-id" />
             <input id="message-text" type="text" class="chat-message" placeholder="Write your message and presss enter..." />
-            <button id="send-button">Send</button>
+            <button id="send-button" class="button send-button">Send</button>
         </div>
     </div>
 

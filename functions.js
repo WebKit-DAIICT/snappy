@@ -19,7 +19,7 @@ function loginWithGoogle() {
       var user = result.user;
 
       // Create user
-      createUser(user.uid, user.displayName, user.email);
+      createUser(user.uid, user.displayName, user.email, user.photoURL);
     }).catch(function(error) {
       console.log(error.message);
     });
@@ -31,7 +31,7 @@ function logInUser() {
     loginWithGoogle();
 }
 
-function createUser(uid, uname, uemail) {
+function createUser(uid, uname, uemail, photoURL) {
     // Get a reference to the database service
     var database = firebase.database();
     var usersRef = database.ref("users");
@@ -39,7 +39,8 @@ function createUser(uid, uname, uemail) {
     var user = {
         id: uid,
         name: uname,
-        email: uemail
+        email: uemail,
+        imageUrl: photoURL
     };
 
     usersRef.child(uid).set(user).then(function() {
@@ -53,12 +54,15 @@ function ifUserIsLoggedIn(fn) {
         window.currentUser = {
             id: user.uid,
             name: user.displayName,
-            email: user.email
+            email: user.email,
+            imageUrl: user.photoURL
         };
 
         fn();
       } else {
         // No user is signed in.
+        // Redirect to home page
+        redirect('index.html');
       }
     });
 }
@@ -69,8 +73,10 @@ function getElement(id) {
 
 function updateUserData() {
     var usernameElement = getElement("username");
+    var userImageElement = getElement("user-image");
 
     usernameElement.textContent = window.currentUser.name;
+    userImageElement.src = window.currentUser.imageUrl;
 }
 
 function loadUsers(fn) {
@@ -89,7 +95,15 @@ function renderUser(user) {
     var uid = user.id;
     var chat_id = getChatId(window.currentUser.id, uid);
     var name = user.name;
-    var html = '<div id="' + chat_id + '" class="member">'+ name +'</div>';
+    var imageUrl = user.photoURL;
+
+    if (!imageUrl) {
+        imageUrl = "default.png";
+    }
+
+    var html = '<div id="' + chat_id + '" class="member"><img src="'+ imageUrl  +'">';
+    html += '<span id="member-name">' + name + '</span>';
+    html+= '</div>';
 
     return html;
 }
@@ -146,4 +160,28 @@ function sendMessage(chat_id, text) {
     var newMessageId = chatsRef.push().key;
 
     chat.child(newMessageId).set(message);
+}
+
+function removeClassMultiple(elementClass, classNameToRemove) {
+    var elements = document.getElementsByClassName(elementClass);
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove(classNameToRemove);
+    }
+
+}
+
+function scrollToBottom(element) {
+    element.scrollTop = element.scrollHeight;
+}
+
+function logoutUser() {
+    // Sign out user
+    firebase.auth().signOut().then(function() {
+        // User signed out
+        // redirect to home page.
+        redirect('index.html');
+    }, function(error) {
+        console.log(error);
+    });
 }

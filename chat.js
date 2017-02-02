@@ -64,6 +64,13 @@ ifUserIsLoggedIn(function() {
         var text = getElement("message-text").value;
         var chat_id = getElement("chat-id").value;
 
+        // Message is empty
+        if (text.length < 1) {
+            alert("Message is required!");
+            // Halt further execution
+            return false;
+        }
+
         sendMessage(chat_id, text);
     });
 

@@ -138,8 +138,8 @@ body.homepage {
 }
 
 .message {
-    background: #3789ef;
-    color: #fff;
+    background: #fff;
+    color: #252b33;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -150,8 +150,8 @@ body.homepage {
 }
 
 .message.by-user {
-    background: #fff;
-    color: #252b33;
+    background: #3789ef;
+    color: #fff;
     float: right;
     clear: both;
 }

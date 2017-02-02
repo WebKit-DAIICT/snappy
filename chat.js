@@ -61,7 +61,8 @@ ifUserIsLoggedIn(function() {
     // Send button is clicked
     // send message to the current chat
     click("send-button", function() {
-        var text = getElement("message-text").value;
+        var textBox = getElement("message-text");
+        var text = textBox.value;
         var chat_id = getElement("chat-id").value;
 
         // Message is empty
@@ -71,7 +72,11 @@ ifUserIsLoggedIn(function() {
             return false;
         }
 
-        sendMessage(chat_id, text);
+        sendMessage(chat_id, text, function() {
+            // Message sent
+            // Make textbox value blank
+            textBox.value = "";
+        });
     });
 
     // Logout Button is clicked

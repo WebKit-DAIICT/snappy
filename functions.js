@@ -148,7 +148,7 @@ function renderMessage(message) {
     return html;
 }
 
-function sendMessage(chat_id, text) {
+function sendMessage(chat_id, text, fn) {
     var message = {
         text: text,
         sender_id: window.currentUser.id
@@ -159,7 +159,7 @@ function sendMessage(chat_id, text) {
     var chat = chatsRef.child(chat_id);
     var newMessageId = chatsRef.push().key;
 
-    chat.child(newMessageId).set(message);
+    chat.child(newMessageId).set(message).then(fn);
 }
 
 function removeClassMultiple(elementClass, classNameToRemove) {

@@ -147,6 +147,22 @@ body.homepage {
     float: left;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     clear: both;
+    margin-left: 15px;
+    position: relative;
+}
+
+.message:after {
+    content: ' ';
+    width: 15px;
+    height: 10px;
+    background: transparent;
+    display: block;
+    position: absolute;
+    border-top: 1px solid transparent;
+    border-bottom: 10px solid transparent;
+    top: 25%;
+    left: -15px;
+    border-right: 10px solid white;
 }
 
 .message.by-user {
@@ -154,6 +170,15 @@ body.homepage {
     color: #fff;
     float: right;
     clear: both;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.message.by-user:after {
+    left: initial;
+    right: -10px;
+    border: 10px solid;
+    border-color: #3789ef transparent transparent #3789ef;
 }
 
 .chat-form {

@@ -62,6 +62,7 @@ body.homepage {
     width: 30%;
     background: #191d22;
     color: #fff;
+    overflow: auto;
 }
 
 .user-info {

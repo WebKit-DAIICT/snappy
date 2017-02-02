@@ -95,7 +95,7 @@ function renderUser(user) {
     var uid = user.id;
     var chat_id = getChatId(window.currentUser.id, uid);
     var name = user.name;
-    var imageUrl = user.photoURL;
+    var imageUrl = user.imageUrl;
 
     if (!imageUrl) {
         imageUrl = "default.png";
